@@ -639,18 +639,48 @@
     }
     .options-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 10px;
-      margin-top: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
     }
     .option-card {
       background: var(--bg-surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .option-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(20, 184, 166, 0.4);
+      box-shadow: var(--shadow-sm);
+    }
+    .option-img-wrap {
+      width: 100%;
+      height: 105px;
+      position: relative;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.25);
+    }
+    .option-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .option-card:hover .option-img {
+      transform: scale(1.05);
+    }
+    .option-content {
       padding: 10px 12px;
       display: flex;
       flex-direction: column;
       gap: 4px;
+      flex: 1;
     }
     .option-name {
       font-weight: 600;
@@ -666,7 +696,7 @@
       font-family: var(--font-mono);
       color: var(--teal);
       text-decoration: none;
-      margin-top: 4px;
+      margin-top: 6px;
       display: inline-flex;
       align-items: center;
       gap: 4px;
@@ -1408,21 +1438,70 @@
       "d4-garrett": { img: "images/d4-garrett.jpg", tag: "📍 BKK Airside · Garrett Popcorn" }
     };
 
-    // Food category image mapping helper
+    // Food category image mapping helper using local compressed photos
     function getFoodImage(name, desc) {
       const s = (name + " " + (desc || "")).toLowerCase();
-      if (s.includes("khao soi")) return "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80";
-      if (s.includes("boat noodle") || s.includes("noodle") || s.includes("guay jub")) return "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80";
-      if (s.includes("som tam") || s.includes("papaya")) return "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=600&q=80";
-      if (s.includes("pad thai")) return "https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=600&q=80";
-      if (s.includes("tom yum") || s.includes("mama")) return "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80";
-      if (s.includes("mango") || s.includes("sticky rice") || s.includes("durian") || s.includes("fruit")) return "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=600&q=80";
-      if (s.includes("ice cream") || s.includes("toast") || s.includes("dessert") || s.includes("bua loy") || s.includes("sweet")) return "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80";
-      if (s.includes("tea") || s.includes("matcha") || s.includes("coffee")) return "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80";
-      if (s.includes("pork") || s.includes("chicken") || s.includes("skewer") || s.includes("sausage") || s.includes("satay")) return "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80";
-      if (s.includes("seafood") || s.includes("crab") || s.includes("squid") || s.includes("prawn") || s.includes("lobster") || s.includes("suki")) return "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80";
-      if (s.includes("rib") || s.includes("saeb") || s.includes("jodd")) return "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80";
-      return "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80";
+      if (s.includes("khao soi")) return "images/d1-ari.jpg";
+      if (s.includes("boat noodle") || s.includes("noodle")) return "images/d1-boat.jpg";
+      if (s.includes("guay jub")) return "images/opt-guayjub.jpg";
+      if (s.includes("som tam") || s.includes("papaya")) return "images/opt-somtam.jpg";
+      if (s.includes("pad thai")) return "images/d2-oldtown.jpg";
+      if (s.includes("tom yum") || s.includes("mama")) return "images/opt-tomyum.jpg";
+      if (s.includes("mango") || s.includes("sticky rice")) return "images/opt-mangosticky.jpg";
+      if (s.includes("durian") || s.includes("fruit")) return "images/d3-ortorkor.jpg";
+      if (s.includes("ice cream") || s.includes("toast") || s.includes("dessert") || s.includes("kakigori")) return "images/d4-afteryou.jpg";
+      if (s.includes("bua loy") || s.includes("grass jelly") || s.includes("sweet")) return "images/opt-bualoy.jpg";
+      if (s.includes("tea") || s.includes("matcha") || s.includes("cha")) return "images/opt-thaitea.jpg";
+      if (s.includes("pork") || s.includes("skewer") || s.includes("moo ping")) return "images/d3-china.jpg";
+      if (s.includes("chicken") || s.includes("polo")) return "images/opt-friedchicken.jpg";
+      if (s.includes("seafood") || s.includes("crab") || s.includes("squid") || s.includes("prawn") || s.includes("suki")) return "images/d3-dinner.jpg";
+      if (s.includes("rib") || s.includes("saeb") || s.includes("jodd")) return "images/d1-jodd.jpg";
+      if (s.includes("mookata") || s.includes("bbq")) return "images/opt-mookata.jpg";
+      return "images/d3-yaowarat.jpg";
+    }
+
+    // Curated option image resolver with authentic Google Maps imagery
+    function getOptionImage(o, stopId) {
+      const text = ((o.n || "") + " " + (o.d || "")).toLowerCase();
+      
+      // 1. Direct venue or specialty matching
+      if (text.includes("matcha")) return "images/opt-matcha.jpg";
+      if (text.includes("som tam") || text.includes("somtam") || text.includes("isan")) return "images/opt-somtam.jpg";
+      if (text.includes("fried chicken") || text.includes("polo")) return "images/opt-friedchicken.jpg";
+      if (text.includes("tom yum") || text.includes("pe aor")) return "images/opt-tomyum.jpg";
+      if (text.includes("thai tea") || text.includes("karun") || text.includes("chatramue") || text.includes("auntie nid")) return "images/opt-thaitea.jpg";
+      if (text.includes("mango sticky rice") || text.includes("k. panich") || text.includes("somsri") || text.includes("pui pui")) return "images/opt-mangosticky.jpg";
+      if (text.includes("ice cream") || text.includes("coconut") || text.includes("nuttaporn") || text.includes("blendies") || text.includes("coco jj") || text.includes("enchanté") || text.includes("fiin")) return "images/opt-coconutice.jpg";
+      if (text.includes("crab") || text.includes("here hai") || text.includes("here duan")) return "images/opt-crabrice.jpg";
+      if (text.includes("mookata") || text.includes("bbq") || text.includes("chuankin") || text.includes("taweechok")) return "images/opt-mookata.jpg";
+      if (text.includes("bua loy") || text.includes("grass jelly") || text.includes("jae wan") || text.includes("tao huay")) return "images/opt-bualoy.jpg";
+      if (text.includes("guay jub") || text.includes("roll noodle") || text.includes("ouan") || text.includes("nai ek")) return "images/opt-guayjub.jpg";
+      if (text.includes("perfume") || text.includes("mith") || text.includes("butterfly") || text.includes("scent") || text.includes("aroma") || text.includes("breezy") || text.includes("karmakamet")) return "images/opt-perfume.jpg";
+      if (text.includes("clay") || text.includes("ceramic") || text.includes("mug") || text.includes("soap")) return "images/opt-ceramics.jpg";
+      if (text.includes("flower") || text.includes("pak khlong")) return "images/opt-flowers.jpg";
+
+      // 2. Stop context or known highlights
+      if (text.includes("boat noodle") || text.includes("ruathong") || text.includes("payak") || text.includes("anong")) return "images/d1-boat.jpg";
+      if (text.includes("khao soi") || text.includes("ong tong") || text.includes("homey taste")) return "images/d1-ari.jpg";
+      if (text.includes("toast") || text.includes("after you") || text.includes("kakigori") || text.includes("pungdet") || text.includes("japang") || text.includes("bun") || text.includes("bread") || text.includes("tart")) return "images/d4-afteryou.jpg";
+      if (text.includes("pad thai") || text.includes("fai ta lu") || text.includes("thongbai")) return "images/d2-oldtown.jpg";
+      if (text.includes("pork") || text.includes("skewer") || text.includes("moo ping") || text.includes("satay") || text.includes("sumontha") || text.includes("tim")) return "images/d3-china.jpg";
+      if (text.includes("seafood") || text.includes("suki") || text.includes("elvis") || text.includes("t&k") || text.includes("fikeaw") || text.includes("prawn") || text.includes("lobster") || text.includes("oyster") || text.includes("scallop")) return "images/d3-dinner.jpg";
+      if (text.includes("erawan") || text.includes("shrine")) return "images/d1-bigc.jpg";
+      if (text.includes("gentlewoman") || text.includes("photo") || text.includes("fashion") || text.includes("vintage")) return "images/d1-siamsq.jpg";
+      if (text.includes("bacc") || text.includes("art") || text.includes("comic")) return "images/d1-bacc.jpg";
+      if (text.includes("ikea") || text.includes("emsphere")) return "images/d1-ikea.jpg";
+      if (text.includes("shoes") || text.includes("leather")) return "images/d3-shoes.jpg";
+      if (text.includes("moca")) return "images/d3-moca.jpg";
+      if (text.includes("sooksiam") || text.includes("iconsiam") || text.includes("iconcraft")) return "images/d2-icon.jpg";
+      if (text.includes("floating") || text.includes("canal") || text.includes("boat")) return "images/d4-floating.jpg";
+      if (text.includes("talat noi") || text.includes("corner house") || text.includes("songwat") || text.includes("cafe") || text.includes("coffee") || text.includes("supha")) return "images/d4-talatnoi.jpg";
+      if (text.includes("massage") || text.includes("traimit") || text.includes("sampeng")) return "images/d4-massage.jpg";
+      if (text.includes("makro") || text.includes("snack") || text.includes("seaweed") || text.includes("squid") || text.includes("durian") || text.includes("paste")) return "images/d2-makro.jpg";
+
+      // 3. Fallback to current stop image
+      if (STOP_IMAGES[stopId]) return STOP_IMAGES[stopId].img;
+      return "images/d3-yaowarat.jpg";
     }
 
     // State Management & LocalStorage Persistence
@@ -1571,13 +1650,21 @@
         // Sub options
         let optionsHTML = "";
         if (s.opts && s.opts.length > 0) {
-          const optsList = s.opts.map(o => `
+          const optsList = s.opts.map(o => {
+            const optImg = getOptionImage(o, s.id);
+            return `
             <div class="option-card">
-              <span class="option-name">${esc(o.n)}</span>
-              ${o.d ? `<span class="option-desc">${esc(o.d)}</span>` : ""}
-              <a href="${getMapUrl(o.map || o.n)}" target="_blank" rel="noopener" class="option-link">📍 Map View</a>
+              <div class="option-img-wrap">
+                <img src="${optImg}" alt="${esc(o.n)}" class="option-img" loading="lazy" onerror="this.onerror=null;this.src='images/d3-yaowarat.jpg';">
+              </div>
+              <div class="option-content">
+                <span class="option-name">${esc(o.n)}</span>
+                ${o.d ? `<span class="option-desc">${esc(o.d)}</span>` : ""}
+                <a href="${getMapUrl(o.map || o.n)}" target="_blank" rel="noopener" class="option-link">📍 Map View</a>
+              </div>
             </div>
-          `).join("");
+          `;
+          }).join("");
           optionsHTML = `
             <details class="stop-options-details">
               <summary class="stop-options-summary">👉 Curated Options & Highlights (${s.opts.length})</summary>
