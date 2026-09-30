@@ -7,67 +7,43 @@
   <meta name="description" content="Interactive Bangkok travel planner, curated street food radar, timeline with transit routes, and budget tracker for 2 people.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Notion UI tokens (see .claude/skills/ihlamury-design-skills-notion) */
     :root {
-      --bg: #070e0d;
-      --bg-surface: #0f1d1a;
-      --bg-card: rgba(18, 33, 30, 0.75);
-      --bg-card-hover: rgba(25, 45, 41, 0.9);
-      --bg-glass: rgba(15, 29, 26, 0.65);
-      --border: rgba(45, 80, 74, 0.4);
-      --border-focus: #14b8a6;
-      --teal: #14b8a6;
-      --teal-light: #2dd4bf;
-      --teal-dim: rgba(20, 184, 166, 0.15);
-      --gold: #f59e0b;
-      --gold-light: #fbbf24;
-      --gold-dim: rgba(245, 158, 11, 0.15);
-      --coral: #f43f5e;
-      --coral-dim: rgba(244, 63, 94, 0.15);
-      --blue: #38bdf8;
-      --blue-dim: rgba(56, 189, 248, 0.15);
-      --purple: #c084fc;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      --font-display: 'Outfit', sans-serif;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
-      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-full: 9999px;
-    }
-
-    [data-theme="light"] {
-      --bg: #f4f8f7;
-      --bg-surface: #ffffff;
-      --bg-card: rgba(255, 255, 255, 0.85);
-      --bg-card-hover: rgba(255, 255, 255, 0.98);
-      --bg-glass: rgba(255, 255, 255, 0.75);
-      --border: rgba(180, 205, 200, 0.6);
-      --border-focus: #0d9488;
-      --teal: #0d9488;
-      --teal-light: #0f766e;
-      --teal-dim: rgba(13, 148, 136, 0.12);
-      --gold: #d97706;
-      --gold-light: #b45309;
-      --gold-dim: rgba(217, 119, 6, 0.12);
-      --coral: #e11d48;
-      --coral-dim: rgba(225, 29, 72, 0.12);
-      --blue: #0284c7;
-      --blue-dim: rgba(2, 132, 199, 0.12);
-      --purple: #9333ea;
-      --text: #0f172a;
-      --text-muted: #475569;
-      --text-dim: #64748b;
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+      --bg: #F6F6F6;
+      --bg-surface: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FFFFFF;
+      --bg-glass: #F6F6F6;
+      --border: #E5E5E4;
+      --border-focus: #97CAEE;
+      --accent: #97CAEE;
+      --teal: #2E6A96;
+      --teal-light: #2E6A96;
+      --teal-dim: #DFEFFE;
+      --gold: #9A6700;
+      --gold-light: #9A6700;
+      --gold-dim: #FBF3DB;
+      --coral: #B42318;
+      --coral-dim: #FDEBEC;
+      --blue: #2E6A96;
+      --blue-dim: #DFEFFE;
+      --purple: #6940A5;
+      --text: #3E3E3E;
+      --text-heading: #212121;
+      --text-muted: #5F5F5F;
+      --text-dim: #767674;
+      --font-display: 'Inter', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'Inter', sans-serif;
+      --shadow-sm: none;
+      --shadow-md: 0 1px 3px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 1px 3px rgba(0, 0, 0, 0.06);
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 6px;
+      --radius-full: 15px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -165,108 +141,6 @@
       margin-bottom: 8px;
     }
 
-    .hero-desc {
-      color: var(--text-muted);
-      font-size: 15px;
-      max-width: 680px;
-      line-height: 1.5;
-    }
-
-    /* Stats Pill Deck */
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .stat-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      transition: all 0.2s ease;
-    }
-    .stat-card:hover {
-      border-color: var(--border-focus);
-      transform: translateY(-2px);
-    }
-    .stat-card .label {
-      font-size: 11px;
-      font-family: var(--font-mono);
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .stat-card .val {
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .stat-card .sub {
-      font-size: 11px;
-      color: var(--teal);
-    }
-
-    /* Progress Banner */
-    .progress-banner {
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 12px 16px;
-      margin-top: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .progress-info {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .progress-bar-wrap {
-      width: 120px;
-      height: 8px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-full);
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--teal), var(--gold));
-      width: 0%;
-      transition: width 0.3s ease;
-    }
-
-    .share-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--teal-dim);
-      color: var(--teal);
-      border: 1px solid var(--teal);
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-      font-size: 12.5px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .share-btn:hover {
-      background: var(--teal);
-      color: #070e0d;
-    }
-
     /* Sticky Navigation */
     .nav-sticky {
       position: sticky;
@@ -312,7 +186,7 @@
     }
     .nav-tab.active {
       background: var(--teal);
-      color: #070e0d;
+      color:#fff;
       border-color: var(--teal);
       box-shadow: 0 0 16px var(--teal-glow);
     }
@@ -494,7 +368,7 @@
     }
     .stop-card.done .stop-body {
       opacity: 0.65;
-      border-color: rgba(20, 184, 166, 0.3);
+      border-color: var(--border);
     }
 
     /* Location Image Styling */
@@ -580,7 +454,7 @@
     }
     .stop-check:checked::after {
       content: "✓";
-      color: #070e0d;
+      color:#fff;
       font-size: 14px;
       font-weight: 800;
     }
@@ -612,7 +486,7 @@
     .bullet-tag.see { background: var(--teal-dim); color: var(--teal); }
     .bullet-tag.shop { background: var(--purple); color: #fff; }
     .bullet-tag.price { background: var(--gold-dim); color: var(--gold); }
-    .bullet-tag.tip { background: rgba(255, 255, 255, 0.1); color: var(--text); }
+    .bullet-tag.tip { background: var(--border); color: var(--text); }
     .bullet-tag.time { background: var(--blue-dim); color: var(--blue); }
     .bullet-tag.pin { background: var(--teal-dim); color: var(--teal); }
     .bullet-tag.route { background: var(--blue-dim); color: var(--blue); }
@@ -655,7 +529,7 @@
     }
     .option-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(20, 184, 166, 0.4);
+      border-color: var(--border);
       box-shadow: var(--shadow-sm);
     }
     .option-img-wrap {
@@ -711,7 +585,7 @@
       flex-wrap: wrap;
       margin-top: 14px;
       padding-top: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid var(--border);
     }
     .action-btn {
       font-family: var(--font-display);
@@ -733,12 +607,12 @@
       border-color: var(--teal);
       color: var(--teal);
     }
-    .action-btn.map { border-color: rgba(20, 184, 166, 0.4); color: var(--teal-light); }
+    .action-btn.map { border-color: var(--border); color: var(--teal-light); }
 
     /* Note Editor */
     .note-box {
       margin-top: 10px;
-      background: rgba(0, 0, 0, 0.25);
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 10px;
@@ -761,147 +635,6 @@
       display: flex;
       justify-content: flex-end;
       gap: 8px;
-    }
-
-    /* Food Radar View */
-    .radar-header {
-      margin-bottom: 24px;
-    }
-    .search-bar-wrap {
-      position: relative;
-      margin-bottom: 16px;
-    }
-    .search-input {
-      width: 100%;
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-full);
-      padding: 12px 20px 12px 46px;
-      font-size: 14.5px;
-      color: var(--text);
-      outline: none;
-      transition: all 0.2s ease;
-    }
-    .search-input:focus {
-      border-color: var(--teal);
-      box-shadow: 0 0 16px var(--teal-dim);
-    }
-    .search-icon {
-      position: absolute;
-      left: 18px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-dim);
-      font-size: 16px;
-    }
-
-    .filter-pills {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      padding-bottom: 8px;
-    }
-    .filter-pills::-webkit-scrollbar { display: none; }
-
-    .filter-pill {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--text-muted);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-    .filter-pill.active {
-      background: var(--teal);
-      color: #070e0d;
-      border-color: var(--teal);
-    }
-
-    .food-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .food-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 10px;
-      transition: all 0.2s ease;
-      overflow: hidden;
-    }
-    .food-card:hover {
-      border-color: var(--border-focus);
-      transform: translateY(-2px);
-    }
-    .food-card.done {
-      opacity: 0.6;
-    }
-    .food-img-wrap {
-      width: 100%;
-      height: 140px;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      position: relative;
-      background: rgba(0, 0, 0, 0.3);
-    }
-    .food-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-    .food-card:hover .food-img {
-      transform: scale(1.04);
-    }
-    .food-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .food-name {
-      font-family: var(--font-display);
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .food-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-    .food-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-top: 8px;
-      padding-top: 8px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .day-badge {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 600;
-      background: var(--gold-dim);
-      color: var(--gold);
-      padding: 2px 8px;
-      border-radius: 4px;
     }
 
     /* Budget Calculator View */
@@ -947,7 +680,7 @@
     }
     .curr-btn.active {
       background: var(--teal);
-      color: #070e0d;
+      color:#fff;
     }
 
     .budget-summary-grid {
@@ -1007,70 +740,6 @@
       color: var(--teal);
     }
 
-    /* Hotel & Guide View */
-    .hotel-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      margin-bottom: 20px;
-    }
-    .hotel-title {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .hotel-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--teal-dim);
-      color: var(--teal);
-      border: 1px solid var(--teal);
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 14px;
-    }
-
-    .guide-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      margin-top: 16px;
-    }
-    .guide-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 16px;
-    }
-    .guide-box h4 {
-      font-family: var(--font-display);
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .guide-box ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .guide-box li {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-
     /* Toast */
     .toast {
       position: fixed;
@@ -1107,6 +776,45 @@
       .hero-stats { grid-template-columns: repeat(2, 1fr); }
       .stop-img-wrap { height: 160px; }
     }
+
+    /* Notion UI overrides */
+    body {
+      background: var(--bg);
+      font-size: 16px;
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      min-height: 100dvh;
+    }
+    h1 {
+      font-size: clamp(40px, 9vw, 66px);
+      font-weight: 700;
+      letter-spacing: normal;
+      background: none;
+      -webkit-text-fill-color: var(--text-heading);
+      color: var(--text-heading);
+      text-wrap: balance;
+    }
+    h2, h3, h4 { color: var(--text-heading); letter-spacing: normal; text-wrap: balance; }
+    p { text-wrap: pretty; }
+    * {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      transition: none !important;
+      letter-spacing: normal !important;
+    }
+    *:hover { transform: none !important; }
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .nav-tab.active,
+    .nav-tab.active:hover {
+      background: var(--accent);
+      color: var(--text-heading);
+      border-color: var(--accent);
+    }
+    .nav-tab:hover { background: var(--border); }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
   </style>
 </head>
 <body>
@@ -1116,63 +824,21 @@
       <div class="top-bar">
         <div class="brand-tag">🇹🇭 BANGKOK 7–11 OCT 2026</div>
         <div class="header-actions">
-          <button class="btn-icon" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">🌓</button>
           <a href="bangkok-trip-itinerary.pdf" target="_blank" class="btn-icon" title="Download PDF Itinerary" aria-label="PDF Itinerary">📄</a>
         </div>
       </div>
 
       <div class="hero-title-wrap">
         <h1>Bangkok Expedition</h1>
-        <p class="hero-desc">Curated 5-day cultural & culinary odyssey for 2 travelers. Staying in Chinatown at W22 by Burasari, tracking Michelin street food gems, Rattanakosin heritage, night markets, and creative arts.</p>
       </div>
 
-      <div class="hero-stats">
-        <div class="stat-card">
-          <span class="label">Duration</span>
-          <span class="val">5 Days</span>
-          <span class="sub">4 Nights · Oct 7–11</span>
-        </div>
-        <div class="stat-card">
-          <span class="label">Home Base</span>
-          <span class="val">Chinatown</span>
-          <span class="sub">W22 by Burasari</span>
-        </div>
-        <div class="stat-card">
-          <span class="label">Planned Stops</span>
-          <span class="val" id="totalStopsCount">42 Stops</span>
-          <span class="sub">Across Bangkok</span>
-        </div>
-        <div class="stat-card">
-          <span class="label">Food Trail</span>
-          <span class="val">83 Venues</span>
-          <span class="sub">19 Must-Try Dishes</span>
-        </div>
-      </div>
-
-      <div class="progress-banner">
-        <div class="progress-info">
-          <div>
-            <div style="font-weight: 700; font-size: 13.5px;" id="progressLabel">Trip Progress: 0/42 stops visited</div>
-            <div style="font-size: 11px; color: var(--text-dim);" id="dishProgressLabel">0/19 signature dishes tried</div>
-          </div>
-          <div class="progress-bar-wrap">
-            <div class="progress-bar-fill" id="progressBarFill"></div>
-          </div>
-        </div>
-        <div style="display: flex; gap: 8px;">
-          <button class="share-btn" id="btnShareProgress">🔗 Share Progress with Friend</button>
-        </div>
-      </div>
     </header>
 
     <!-- Sticky Main Navigation -->
     <nav class="nav-sticky">
       <div class="nav-tabs">
-        <button class="nav-tab active" data-view="timeline">📅 Day-by-Day Timeline</button>
-        <button class="nav-tab" data-view="radar">🍜 Food & Night Market Radar</button>
-        <button class="nav-tab" data-view="budget">💰 Budget & Cost Calculator</button>
-        <button class="nav-tab" data-view="checklist">📋 Master Checklists</button>
-        <button class="nav-tab" data-view="guide">🏨 Stay & Transit Cheatsheet</button>
+        <button class="nav-tab active" data-view="timeline">📅 Timeline</button>
+        <button class="nav-tab" data-view="budget">💰 Budget</button>
       </div>
     </nav>
 
@@ -1181,25 +847,6 @@
       <div class="day-selector" id="dayPills"></div>
       <div id="dayContent"></div>
     </main>
-
-    <!-- VIEW 2: FOOD RADAR -->
-    <section id="viewRadar" style="display: none;">
-      <div class="radar-header">
-        <div class="search-bar-wrap">
-          <span class="search-icon">🔍</span>
-          <input type="text" class="search-input" id="radarSearch" placeholder="Search dish, stall name, or area (e.g. Khao Soi, Jeh O, Yaowarat, Ari)...">
-        </div>
-        <div class="filter-pills" id="radarFilters">
-          <button class="filter-pill active" data-filter="all">All Spots (83)</button>
-          <button class="filter-pill" data-filter="must-try">⭐ Must-Try Dishes (19)</button>
-          <button class="filter-pill" data-filter="michelin">🏆 Michelin & Bib Gourmand</button>
-          <button class="filter-pill" data-filter="street">🍢 Street Food & Night Markets</button>
-          <button class="filter-pill" data-filter="dessert">🍧 Desserts & Thai Tea</button>
-          <button class="filter-pill" data-filter="cafe">☕ Specialty Cafes</button>
-        </div>
-      </div>
-      <div class="food-grid" id="radarGrid"></div>
-    </section>
 
     <!-- VIEW 3: BUDGET CALCULATOR -->
     <section id="viewBudget" style="display: none;">
@@ -1290,91 +937,6 @@
       </div>
     </section>
 
-    <!-- VIEW 4: CHECKLISTS -->
-    <section id="viewChecklist" style="display: none;">
-      <div class="day-header-card">
-        <h2>Curated Travel Checklists</h2>
-        <p style="color: var(--text-muted); font-size: 14px;">154 curated items across dishes, food venues, shopping souvenirs, and must-see activities.</p>
-        <div class="filter-pills" id="clFilters" style="margin-top: 14px;">
-          <button class="filter-pill active" data-cl-filter="dish">🍲 Must-Try Dishes (19)</button>
-          <button class="filter-pill" data-cl-filter="food">🍜 Food & Drink Spots (83)</button>
-          <button class="filter-pill" data-cl-filter="shop">🛍️ Shopping & Gifts (25)</button>
-          <button class="filter-pill" data-cl-filter="do">🏛️ Places & Activities (27)</button>
-        </div>
-      </div>
-      <div id="clItemsList" style="display: flex; flex-direction: column; gap: 8px;"></div>
-    </section>
-
-    <!-- VIEW 5: GUIDE -->
-    <section id="viewGuide" style="display: none;">
-      <div class="hotel-card">
-        <span class="hotel-badge">⭐ Base Camp for All 4 Nights</span>
-        <h2 class="hotel-title">W22 by Burasari @ Chinatown</h2>
-        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 14px;">Located on Mittraphan Road (near 22 July Circle) in vibrant Chinatown. A stylish lifestyle boutique hotel that keeps you in the cultural pulse of Bangkok with zero hotel hopping.</p>
-        
-        <div style="width:100%; height:220px; border-radius:var(--radius-md); overflow:hidden; margin-bottom:16px; background: rgba(0,0,0,0.3);">
-          <img src="images/w22-by-burasari.jpg" alt="W22 by Burasari Chinatown Hotel" style="width:100%; height:100%; object-fit:cover;">
-        </div>
-
-        <div class="guide-grid">
-          <div class="guide-box">
-            <h4>🚇 Transit Access</h4>
-            <ul>
-              <li><b>6 min walk to MRT Wat Mangkon & MRT Hua Lamphong (Blue Line)</b></li>
-              <li>Direct underground line to:
-                <br>• Sam Yan (Banthat Thong food street)
-                <br>• Sukhumvit / Asok (BTS interchange)
-                <br>• Chatuchak Park (Weekend market)
-                <br>• Sanam Chai (Grand Palace / Old Town)
-                <br>• Phetchaburi (Airport Rail Link link)</li>
-            </ul>
-          </div>
-          <div class="guide-box">
-            <h4>🏨 Hotel Amenities & Tips</h4>
-            <ul>
-              <li><b>7-story sunlit atrium, communal loft with pool table & rooftop bar / terrace</b></li>
-              <li>Late check-in: Arriving ~23:30 Wed night. Notify hotel in advance.</li>
-              <li>Check-out: Sun 11 Oct by 13:00. Leave luggage at front desk until 15:30.</li>
-              <li>Atmospheric hipster cafe vibe, laundry corner, and street food steps away on Mittraphan & Yaowarat.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="hotel-card">
-        <h3 style="font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 12px;">Bangkok Street Smart Tips</h3>
-        <div class="guide-grid">
-          <div class="guide-box">
-            <h4>🛕 Temple Etiquette</h4>
-            <ul>
-              <li><b>Dress code:</b> Shoulders and knees MUST be covered at Grand Palace and Wat Arun. No sheer fabric or ripped jeans.</li>
-              <li>Slip-on shoes are convenient as shoes must be removed before entering temple viharas.</li>
-            </ul>
-          </div>
-          <div class="guide-box">
-            <h4>⚠️ Scam Prevention</h4>
-            <ul>
-              <li>If any tuk-tuk driver or stranger near Grand Palace says <i>"The temple is closed today for a Buddhist holiday"</i>, it is a <b>100% scam</b> to steer you to gem shops. Walk straight to the official gate.</li>
-            </ul>
-          </div>
-          <div class="guide-box">
-            <h4>🚕 Rush Hour Traffic</h4>
-            <ul>
-              <li><b>Sukhumvit (Thu 17:30–19:30):</b> Never take Grab from Emsphere/Phrom Phong to Banthat Thong during rush hour. Take BTS → MRT instead.</li>
-              <li>Rainy season: October evenings can see quick showers. Keep an umbrella in your day pack.</li>
-            </ul>
-          </div>
-          <div class="guide-box">
-            <h4>🎉 Special Events</h4>
-            <ul>
-              <li><b>BKK Comics Art Festival:</b> Oct 6–18 at BACC (3rd Floor).</li>
-              <li><b>Yaowarat Vegetarian Festival:</b> Opening night on Saturday, 10 Oct right on your street!</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </div>
 
   <div class="toast" id="toast"></div>
@@ -1438,45 +1000,52 @@
       "d4-garrett": { img: "images/d4-garrett.jpg", tag: "📍 DMK Airside · Garrett Popcorn" }
     };
 
-    // Master signature dish authentic Google Maps image map (100% verified real photos)
-    const DISH_IMAGE_MAP = {
-      "dish-khao-soi": "images/d1-ari.jpg",
-      "dish-boat-noodles": "images/d1-boat.jpg",
-      "dish-som-tam-and-isan-food": "images/opt-somtam.jpg",
-      "dish-mama-tom-yum": "images/d1-banthat.jpg",
-      "dish-leng-saeb-rib-tower": "images/d1-jodd.jpg",
-      "dish-thai-dessert-bowls-bua-loy": "images/opt-bualoy.jpg",
-      "dish-pad-thai": "images/d2-oldtown.jpg",
-      "dish-thai-milk-tea": "images/opt-thaitea.jpg",
-      "dish-mango-sticky-rice": "images/opt-mangosticky.jpg",
-      "dish-coconut-ice-cream": "images/opt-coconutice.jpg",
-      "dish-moo-ping-grilled-pork-skewers": "images/d3-china.jpg",
-      "dish-khanom-bueng-crispy-crepes": "images/d2-wanglang.jpg",
-      "dish-grilled-butter-bread-with-ice-cream": "images/d2-bokkia.jpg",
-      "dish-boran-coffee-and-patongko": "images/d3-suriya.jpg",
-      "dish-curry-over-rice": "images/d3-ortorkor.jpg",
-      "dish-guay-jub-peppery-roll-noodles": "images/opt-guayjub.jpg",
-      "dish-grilled-seafood": "images/d3-dinner.jpg",
-      "dish-thai-tea-khiri": "images/d4-talatnoi.jpg",
-      "dish-after-you-buns": "images/d4-afteryou.jpg"
-    };
-
-    function getFoodImage(item) {
-      if (typeof item === "object" && item && item.id && DISH_IMAGE_MAP[item.id]) {
-        return DISH_IMAGE_MAP[item.id];
-      }
-      if (typeof item === "string" && DISH_IMAGE_MAP[item]) {
-        return DISH_IMAGE_MAP[item];
-      }
-      return "images/d3-yaowarat.jpg";
-    }
-
     // Curated option image resolver: maps authentic Google Maps photos to verified venues
     // Falls back to parent stop image for contextual relevance
     function getOptionImage(o, parentStopId) {
       const name = (o.n || "").toLowerCase();
       const desc = (o.d || "").toLowerCase();
       const placeId = Array.isArray(o.map) ? (o.map[1] || "") : "";
+
+      // Wang Lang food, Makro products and mall brand photos, matched by option name
+      const NAMED_OPTION_IMAGES = [
+        // Wang Lang Market: the food itself
+        ["cocohype", "opt-wl-cocohype.jpg"],
+        ["japang", "opt-wl-japang.jpg"],
+        ["popiah", "opt-wl-popiah.jpg"],
+        ["kanom bueng", "opt-wl-kanombueng.jpg"],
+        ["thua paep", "opt-wl-thuapaep.jpg"],
+        ["tao huay", "opt-wl-soymilk.jpg"],
+        ["fiin ice", "opt-wl-fiinice.jpg"],
+        ["salted egg tart", "opt-wl-eggtart.jpg"],
+        ["coke in a glass", "opt-wl-coke.jpg"],
+        // Makro Sathorn: the actual products
+        ["tao kae noi", "opt-mk-taokaenoi.jpg"],
+        ["bento squid", "opt-mk-bento.jpg"],
+        ["koh-kae", "opt-mk-kohkae.jpg"],
+        ["dried mango", "opt-mk-driedfruit.jpg"],
+        ["thai tea mix", "opt-mk-thaitea.jpg"],
+        ["pad thai paste", "opt-mk-paste.jpg"],
+        ["mama tom yum", "opt-mk-mama.jpg"],
+        ["balms and inhalers", "opt-mk-balm.jpg"],
+        // Siam, CentralWorld, Emsphere, ICONSIAM: brand photos
+        ["true alpha hub", "opt-br-truealpha.jpg"],
+        ["gentlewoman", "opt-br-gentlewoman.jpg"],
+        ["blendies", "opt-br-blendies.jpg"],
+        ["after you", "opt-br-afteryou.jpg"],
+        ["karun thai tea", "opt-br-karun.jpg"],
+        ["kanom siam", "opt-br-kanomsiam.jpg"],
+        ["erawan shrine", "opt-br-erawan.jpg"],
+        ["thong smith", "opt-br-thongsmith.jpg"],
+        ["mith bangkok", "opt-br-mith.jpg"],
+        ["ikea", "opt-br-ikea.jpg"],
+        ["khiri", "opt-br-khiri.jpg"],
+        ["diy magnet", "opt-br-iconcraft.jpg"],
+        ["chatramue", "opt-br-chatramue.jpg"],
+        ["sooksiam", "opt-br-sooksiam.jpg"]
+      ];
+      const named = NAMED_OPTION_IMAGES.find(([key]) => name.includes(key));
+      if (named) return "images/" + named[1];
 
       // Exact venue matching for verified authentic photos
       if (placeId === "ChIJEYwjWL2d4jAR8gvrkG_-ShM" || name.includes("matchaka")) return "images/opt-matcha.jpg";
@@ -1508,22 +1077,6 @@
       if (saved) state = JSON.parse(saved);
     } catch(e){}
 
-    // Query String Progress Import (e.g. ?progress=...)
-    try {
-      const urlParams = new URLSearchParams(window.location.search);
-      const shared = urlParams.get("progress");
-      if (shared) {
-        const jsonStr = decodeURIComponent(escape(atob(shared)));
-        const parsed = JSON.parse(jsonStr);
-        if (parsed && typeof parsed === "object") {
-          state = { ...state, ...parsed };
-          localStorage.setItem("bkk-trip-state-v2", JSON.stringify(state));
-          showToast("Imported friend's progress successfully!");
-          window.history.replaceState({}, document.title, window.location.pathname);
-        }
-      }
-    } catch(e){}
-
     let currentDayId = "d1";
     let currentCurrency = "THB";
     const EXCHANGE_RATE = 35; // 35 THB = 1 USD
@@ -1543,10 +1096,7 @@
     function toggleStop(id, done) {
       state[id] = { ...(state[id] || {}), done: !!done };
       try { localStorage.setItem("bkk-trip-state-v2", JSON.stringify(state)); } catch(e){}
-      updateProgress();
       renderDayContent();
-      renderChecklist();
-      renderRadar();
     }
 
     function saveNote(id, note) {
@@ -1554,19 +1104,6 @@
       try { localStorage.setItem("bkk-trip-state-v2", JSON.stringify(state)); } catch(e){}
       renderDayContent();
       showToast("Note saved!");
-    }
-
-    function updateProgress() {
-      const totalStops = TRIP_DATA.days.reduce((acc, d) => acc + d.stops.length, 0);
-      const doneStops = TRIP_DATA.days.reduce((acc, d) => acc + d.stops.filter(s => state[s.id]?.done).length, 0);
-      const percent = totalStops ? Math.round((doneStops / totalStops) * 100) : 0;
-
-      const dishes = TRIP_DATA.checklist.dish;
-      const doneDishes = dishes.filter(x => state[x.id]?.done).length;
-
-      $("#progressLabel").textContent = `Trip Progress: ${doneStops}/${totalStops} stops (${percent}%)`;
-      $("#dishProgressLabel").textContent = `${doneDishes}/${dishes.length} signature dishes experienced`;
-      $("#progressBarFill").style.width = percent + "%";
     }
 
     // Map helpers
@@ -1691,7 +1228,7 @@
               ${bulletsHTML ? `<ul class="stop-bullets">${bulletsHTML}</ul>` : ""}
               ${optionsHTML}
 
-              ${note ? `<div style="font-size:12.5px; background:rgba(20,184,166,0.1); border-left:3px solid var(--teal); padding:6px 10px; border-radius:4px; margin:8px 0; color:var(--text);">📝 <b>Note:</b> ${esc(note)}</div>` : ""}
+              ${note ? `<div style="font-size:12.5px; background:var(--teal-dim); border-left:3px solid var(--teal); padding:6px 10px; border-radius:4px; margin:8px 0; color:var(--text);">📝 <b>Note:</b> ${esc(note)}</div>` : ""}
 
               <div class="stop-actions">
                 <a href="${getMapUrl(s.map || s.n)}" target="_blank" rel="noopener" class="action-btn map">🗺️ Google Maps</a>
@@ -1703,7 +1240,7 @@
                 <textarea class="note-textarea" placeholder="Add personal tips, dish favorites, or queue reminders...">${esc(note)}</textarea>
                 <div class="note-btns">
                   <button class="action-btn" onclick="document.getElementById('notebox-${s.id}').style.display='none'">Cancel</button>
-                  <button class="action-btn" style="background:var(--teal); color:#070e0d; font-weight:700;" onclick="saveNote('${s.id}', this.closest('.note-box').querySelector('textarea').value)">Save</button>
+                  <button class="action-btn" style="background:var(--teal); color:#fff; font-weight:700;" onclick="saveNote('${s.id}', this.closest('.note-box').querySelector('textarea').value)">Save</button>
                 </div>
               </div>
             </div>
@@ -1731,96 +1268,6 @@
     }
 
     // Food Radar
-    function renderRadar() {
-      const search = ($("#radarSearch")?.value || "").toLowerCase().trim();
-      const activeFilter = $(".filter-pill.active")?.dataset.filter || "all";
-      const container = $("#radarGrid");
-
-      const allFoods = TRIP_DATA.checklist.food;
-
-      const filtered = allFoods.filter(item => {
-        const text = (item.n + " " + (item.d || "") + " " + item.day).toLowerCase();
-        if (search && !text.includes(search)) return false;
-
-        if (activeFilter === "must-try") {
-          return TRIP_DATA.checklist.dish.some(d => d.n.toLowerCase().includes(item.n.toLowerCase()) || item.n.toLowerCase().includes(d.n.toLowerCase()));
-        }
-        if (activeFilter === "michelin") {
-          return text.includes("michelin") || text.includes("bib") || text.includes("award") || item.n.includes("Ong Tong") || item.n.includes("Jeh O") || item.n.includes("Fai Ta Lu") || item.n.includes("Here Hai") || item.n.includes("Guay Jub Ouan");
-        }
-        if (activeFilter === "dessert") {
-          return text.includes("ice cream") || text.includes("tea") || text.includes("toast") || text.includes("dessert") || text.includes("mango") || text.includes("kakigori") || text.includes("matcha");
-        }
-        if (activeFilter === "street") {
-          return text.includes("market") || text.includes("skewers") || text.includes("noodles") || text.includes("stalls") || text.includes("seafood") || text.includes("curry");
-        }
-        if (activeFilter === "cafe") {
-          return text.includes("cafe") || text.includes("coffee") || text.includes("matcha");
-        }
-        return true;
-      });
-
-      container.innerHTML = filtered.map(item => {
-        const isDone = !!state[item.id]?.done;
-        const foodImg = getFoodImage(item);
-        return `
-          <div class="food-card ${isDone ? 'done' : ''}">
-            <div class="food-img-wrap">
-              <img src="${foodImg}" alt="${esc(item.n)}" class="food-img" loading="lazy">
-            </div>
-            <div class="food-top">
-              <span class="food-name">${esc(item.n)}</span>
-              <input type="checkbox" class="stop-check" data-item-id="${item.id}" ${isDone ? 'checked' : ''}>
-            </div>
-            ${item.d ? `<p class="food-desc">${esc(item.d)}</p>` : ""}
-            <div class="food-meta">
-              <span class="day-badge">Day: ${esc(item.day)}</span>
-              <a href="${getMapUrl(item.map || item.n)}" target="_blank" rel="noopener" class="action-btn map" style="font-size:11px; padding:4px 10px;">🗺️ Map</a>
-            </div>
-          </div>
-        `;
-      }).join("");
-
-      container.querySelectorAll(".stop-check").forEach(chk => {
-        chk.addEventListener("change", (e) => {
-          toggleStop(e.target.dataset.itemId, e.target.checked);
-        });
-      });
-    }
-
-    // Master Checklist
-    function renderChecklist() {
-      const activeCategory = $("#clFilters .filter-pill.active")?.dataset.clFilter || "dish";
-      const items = TRIP_DATA.checklist[activeCategory] || [];
-      const container = $("#clItemsList");
-
-      container.innerHTML = items.map(item => {
-        const isDone = !!state[item.id]?.done;
-        return `
-          <div class="stop-body" style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; ${isDone ? 'opacity:0.6;' : ''}">
-            <div style="display:flex; align-items:center; gap:12px;">
-              <input type="checkbox" class="stop-check" data-cl-id="${item.id}" ${isDone ? 'checked' : ''}>
-              <div>
-                <div style="font-weight:700; font-size:14.5px; ${isDone ? 'text-decoration:line-through;' : ''}">${esc(item.n)}</div>
-                ${item.d ? `<div style="font-size:12px; color:var(--text-dim);">${esc(item.d)}</div>` : ""}
-              </div>
-            </div>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="day-badge">${esc(item.day)}</span>
-              ${item.map ? `<a href="${getMapUrl(item.map)}" target="_blank" rel="noopener" class="action-btn map" style="font-size:11px; padding:3px 8px;">Map</a>` : ""}
-            </div>
-          </div>
-        `;
-      }).join("");
-
-      container.querySelectorAll(".stop-check").forEach(chk => {
-        chk.addEventListener("change", (e) => {
-          toggleStop(e.target.dataset.clId, e.target.checked);
-        });
-      });
-    }
-
-    // Budget Update
     function updateBudget() {
       const isUSD = currentCurrency === "USD";
       const format = (thb) => {
@@ -1849,34 +1296,10 @@
 
         const view = tab.dataset.view;
         $("#viewTimeline").style.display = view === "timeline" ? "block" : "none";
-        $("#viewRadar").style.display = view === "radar" ? "block" : "none";
         $("#viewBudget").style.display = view === "budget" ? "block" : "none";
-        $("#viewChecklist").style.display = view === "checklist" ? "block" : "none";
-        $("#viewGuide").style.display = view === "guide" ? "block" : "none";
 
-        if (view === "radar") renderRadar();
-        if (view === "checklist") renderChecklist();
         if (view === "budget") updateBudget();
         window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    });
-
-    // Radar Search & Filter
-    $("#radarSearch")?.addEventListener("input", renderRadar);
-    $$("#radarFilters .filter-pill").forEach(p => {
-      p.addEventListener("click", () => {
-        $$("#radarFilters .filter-pill").forEach(x => x.classList.remove("active"));
-        p.classList.add("active");
-        renderRadar();
-      });
-    });
-
-    // Checklist Filters
-    $$("#clFilters .filter-pill").forEach(p => {
-      p.addEventListener("click", () => {
-        $$("#clFilters .filter-pill").forEach(x => x.classList.remove("active"));
-        p.classList.add("active");
-        renderChecklist();
       });
     });
 
@@ -1890,38 +1313,9 @@
       });
     });
 
-    // Progress Share
-    $("#btnShareProgress")?.addEventListener("click", () => {
-      try {
-        const payload = btoa(unescape(encodeURIComponent(JSON.stringify(state))));
-        const shareUrl = window.location.origin + window.location.pathname + "?progress=" + payload;
-        if (navigator.clipboard) {
-          navigator.clipboard.writeText(shareUrl).then(() => {
-            showToast("Progress link copied! Send it to your friend.");
-          });
-        } else {
-          prompt("Copy this shareable link:", shareUrl);
-        }
-      } catch(err) {
-        showToast("Error creating share link.");
-      }
-    });
-
-    // Theme Toggle
-    const themeBtn = $("#themeToggle");
-    const currentTheme = localStorage.getItem("bkk-theme") || "dark";
-    document.documentElement.setAttribute("data-theme", currentTheme);
-    themeBtn?.addEventListener("click", () => {
-      const cur = document.documentElement.getAttribute("data-theme");
-      const next = cur === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("bkk-theme", next);
-    });
-
     // Initial Render
     renderDayPills();
     renderDayContent();
-    updateProgress();
     updateBudget();
   </script>
 </body>
