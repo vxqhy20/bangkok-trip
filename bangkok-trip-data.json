@@ -37,23 +37,20 @@
     {
      "id": "d0-hotel",
      "t": "23:30",
-     "n": "Check in: Hotel Royal Bangkok",
+     "n": "Check in: W22 by Burasari",
      "b": [
       [
        "pin",
-       "One hotel for all 4 nights, on Yaowarat Rd"
+       "One hotel for all 4 nights, Mittraphan Rd, Chinatown"
       ],
       [
        "tip",
        "Tell them you arrive late"
       ]
      ],
-     "map": [
-      "Hotel Royal Bangkok Chinatown",
-      "ChIJNeaGgiGZ4jARti015OlJo2A"
-     ],
+     "map": "W22 by Burasari",
      "getThere": "Car: Car or Grab ~40 min to Chinatown",
-     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Royal%20Bangkok%20Chinatown&query_place_id=ChIJNeaGgiGZ4jARti015OlJo2A",
+     "mapUrl": "https://www.google.com/maps/search/?api=1&query=W22%20by%20Burasari",
      "opts": []
     }
    ]
@@ -996,13 +993,10 @@
      "b": [
       [
        "tip",
-       "Drop the shopping and rest. Rooftop pool if you have time"
+       "Drop the shopping and rest. Rooftop terrace & lounge if you have time"
       ]
      ],
-     "map": [
-      "Hotel Royal Bangkok Chinatown",
-      "ChIJNeaGgiGZ4jARti015OlJo2A"
-     ],
+     "map": "W22 by Burasari",
      "opts": [
       {
        "n": "SELL THE SOULS",
@@ -1015,7 +1009,7 @@
       }
      ],
      "getThere": "Grab: Grab ~15 min back to the hotel",
-     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Royal%20Bangkok%20Chinatown&query_place_id=ChIJNeaGgiGZ4jARti015OlJo2A"
+     "mapUrl": "https://www.google.com/maps/search/?api=1&query=W22%20by%20Burasari"
     },
     {
      "id": "d2-boat",
@@ -1618,12 +1612,9 @@
        "Rest before the night out"
       ]
      ],
-     "map": [
-      "Hotel Royal Bangkok Chinatown",
-      "ChIJNeaGgiGZ4jARti015OlJo2A"
-     ],
+     "map": "W22 by Burasari",
      "getThere": "Grab: Grab ~30–40 min · or MRT from Chatuchak Park",
-     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Royal%20Bangkok%20Chinatown&query_place_id=ChIJNeaGgiGZ4jARti015OlJo2A",
+     "mapUrl": "https://www.google.com/maps/search/?api=1&query=W22%20by%20Burasari",
      "opts": []
     },
     {
@@ -1957,12 +1948,9 @@
        "Leave bags at the hotel"
       ]
      ],
-     "map": [
-      "Hotel Royal Bangkok Chinatown",
-      "ChIJNeaGgiGZ4jARti015OlJo2A"
-     ],
+     "map": "W22 by Burasari",
      "getThere": "Walk: Walk ~10 min to the hotel",
-     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20Royal%20Bangkok%20Chinatown&query_place_id=ChIJNeaGgiGZ4jARti015OlJo2A",
+     "mapUrl": "https://www.google.com/maps/search/?api=1&query=W22%20by%20Burasari",
      "opts": []
     },
     {

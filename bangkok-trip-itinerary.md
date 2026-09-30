@@ -1,6 +1,6 @@
 # Bangkok Trip, 7–11 Oct 2026 (2 people)
 
-Land Wed 7 Oct ~22:00 · Fly home Sun 11 Oct 19:00 · Hotel: Hotel Royal Bangkok, Chinatown (all 4 nights)
+Land Wed 7 Oct ~22:00 · Fly home Sun 11 Oct 19:00 · Hotel: W22 by Burasari, Chinatown (all 4 nights)
 
 ---
 
@@ -12,10 +12,10 @@ Land Wed 7 Oct ~22:00 · Fly home Sun 11 Oct 19:00 · Hotel: Hotel Royal Bangkok
 
 *Car: Car or Grab ~40 min to Chinatown*
 
-### 23:30 · Check in: Hotel Royal Bangkok
-- **Where:** One hotel for all 4 nights, on Yaowarat Rd
+### 23:30 · Check in: W22 by Burasari
+- **Where:** One hotel for all 4 nights, Mittraphan Rd, Chinatown
 - **Tip:** Tell them you arrive late
-- [Google Maps](https://www.google.com/maps/search/?api=1&query=Hotel%20Royal%20Bangkok%20Chinatown&query_place_id=ChIJNeaGgiGZ4jARti015OlJo2A)
+- [Google Maps](https://www.google.com/maps/search/?api=1&query=W22%20by%20Burasari)
 
 ---
 
@@ -267,8 +267,8 @@ Land Wed 7 Oct ~22:00 · Fly home Sun 11 Oct 19:00 · Hotel: Hotel Royal Bangkok
 *Grab: Grab ~15 min back to the hotel*
 
 ### 16:15 · Back to hotel, rest
-- **Tip:** Drop the shopping and rest. Rooftop pool if you have time
-- [Google Maps](https://www.google.com/maps/search/?api=1&query=Hotel%20Royal%20Bangkok%20Chinatown&query_place_id=ChIJNeaGgiGZ4jARti015OlJo2A)
+- **Tip:** Drop the shopping and rest. Rooftop terrace & lounge if you have time
+- [Google Maps](https://www.google.com/maps/search/?api=1&query=W22%20by%20Burasari)
 
 **Options:**
 
@@ -423,7 +423,7 @@ Land Wed 7 Oct ~22:00 · Fly home Sun 11 Oct 19:00 · Hotel: Hotel Royal Bangkok
 
 ### 15:45 · Back to hotel, rest
 - **Tip:** Rest before the night out
-- [Google Maps](https://www.google.com/maps/search/?api=1&query=Hotel%20Royal%20Bangkok%20Chinatown&query_place_id=ChIJNeaGgiGZ4jARti015OlJo2A)
+- [Google Maps](https://www.google.com/maps/search/?api=1&query=W22%20by%20Burasari)
 
 *Walk: Walk 5–10 min*
 
@@ -516,7 +516,7 @@ Land Wed 7 Oct ~22:00 · Fly home Sun 11 Oct 19:00 · Hotel: Hotel Royal Bangkok
 
 ### 13:00 · Check out, lunch
 - **Tip:** Leave bags at the hotel
-- [Google Maps](https://www.google.com/maps/search/?api=1&query=Hotel%20Royal%20Bangkok%20Chinatown&query_place_id=ChIJNeaGgiGZ4jARti015OlJo2A)
+- [Google Maps](https://www.google.com/maps/search/?api=1&query=W22%20by%20Burasari)
 
 *Walk: Walk · or Grab ~10 min*
 
@@ -723,24 +723,21 @@ Land Wed 7 Oct ~22:00 · Fly home Sun 11 Oct 19:00 · Hotel: Hotel Royal Bangkok
 
 Stay in one hotel in Chinatown for all 4 nights (Wed 7 → Sun 11). No hotel move, and the MRT Blue Line reaches Sam Yan, Chatuchak, Sukhumvit and the airport train directly.
 
-### Best value
-
-**Hotel Royal Bangkok**  
-
-On Yaowarat Rd, 5 min to MRT Wat Mangkon. Rooftop pool and gym. Thousands of reviews. From ~US$16–20 a night.
-
-### Other good options nearby
+### Selected Hotel
 
 **W22 by Burasari**  
 
-Stylish rooms, well reviewed. From ~US$26.
+On Mittraphan Rd, Chinatown (near 22 July Circle), ~6 min walk to MRT Wat Mangkon or MRT Hua Lamphong. Stylish boutique lifestyle hotel with a 7-story sunlit atrium, communal loft, rooftop bar & terrace, and top reviews. From ~US$26–35 a night.
+
+### Other good options nearby
+
+**Hotel Royal Bangkok**  
+On Yaowarat Rd, rooftop pool and gym. From ~US$16–20.
 
 **ASAI Bangkok Chinatown**  
-
-Newer and a bit nicer, compact rooms. From ~US$41.
+Newer and compact lifestyle hotel right off Chinatown walking street. From ~US$41.
 
 **Condo-style: EXORESIDENCE**  
-
 Apartment-style rooms in Chinatown, lower rating. From ~US$39–50.
 
 Prices are lowest "from" prices seen online, not for your dates. Compare in Google Maps → Prices and book with free cancellation.

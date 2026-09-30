@@ -10,9 +10,9 @@ Interactive travel planner and curated itinerary for 2 people exploring Bangkok.
 
 ## ✈️ Trip Summary
 * **Dates:** Wednesday, 7 Oct – Sunday, 11 Oct 2026 (5 days / 4 nights)
-* **Base Camp:** Hotel Royal Bangkok, Chinatown (Yaowarat Rd)
+* **Base Camp:** W22 by Burasari, Chinatown (Mittraphan Rd / 22 July Circle)
 * **Key Stops:**
-  * **Wed 7 Oct:** Arrival late (22:00 BKK) & Chinatown check-in
+  * **Wed 7 Oct:** Arrival late (22:00 BKK) & W22 by Burasari check-in
   * **Thu 8 Oct:** Ari (Khao Soi), Victory Monument (Boat Noodles), Siam & BACC, CentralWorld, Emsphere, Banthat Thong (Jeh O Chula), Jodd Fairs (Leng Saeb)
   * **Fri 9 Oct:** On Lok Yun breakfast, Grand Palace, Wang Lang Market, Wat Arun, Old Town food walk, Makro Sathorn, Sunset Chao Phraya boat, ICONSIAM
   * **Sat 10 Oct:** Suriya Coffee (facing Giant Buddha), Talat Phlu, Or Tor Kor & Chatuchak Weekend Market, Union Mall, MOCA Bangkok, Yaowarat Vegetarian Festival & Seafood
