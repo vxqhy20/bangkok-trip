@@ -1471,9 +1471,9 @@
       return "images/d3-yaowarat.jpg";
     }
 
-    // Curated option image resolver: maps authentic Google Maps photos strictly to verified venues
-    // Returns null for options without authentic photos to avoid duplication and hallucination
-    function getOptionImage(o) {
+    // Curated option image resolver: maps authentic Google Maps photos to verified venues
+    // Falls back to parent stop image for contextual relevance
+    function getOptionImage(o, parentStopId) {
       const name = (o.n || "").toLowerCase();
       const desc = (o.d || "").toLowerCase();
       const placeId = Array.isArray(o.map) ? (o.map[1] || "") : "";
@@ -1494,8 +1494,11 @@
       if (placeId === "ChIJWfHOpIad4jARnFW1EQbc0fs" || name.includes("nice little clay shop")) return "images/opt-ceramics.jpg";
       if (name.includes("pak khlong") || desc.includes("pak khlong")) return "images/opt-flowers.jpg";
 
-      // Do not duplicate parent stop images or hallucinate unrelated images
-      return null;
+      // Fall back to parent stop's image for contextual relevance
+      if (parentStopId && STOP_IMAGES[parentStopId]) {
+        return STOP_IMAGES[parentStopId].img;
+      }
+      return "images/d3-yaowarat.jpg";
     }
 
     // State Management & LocalStorage Persistence
@@ -1645,13 +1648,12 @@
         let optionsHTML = "";
         if (s.opts && s.opts.length > 0) {
           const optsList = s.opts.map(o => {
-            const optImg = getOptionImage(o);
+            const optImg = getOptionImage(o, s.id);
             return `
-            <div class="option-card ${optImg ? 'has-img' : 'no-img'}">
-              ${optImg ? `
+            <div class="option-card has-img">
               <div class="option-img-wrap">
                 <img src="${optImg}" alt="${esc(o.n)}" class="option-img" loading="lazy">
-              </div>` : ""}
+              </div>
               <div class="option-content">
                 <span class="option-name">${esc(o.n)}</span>
                 ${o.d ? `<span class="option-desc">${esc(o.d)}</span>` : ""}
